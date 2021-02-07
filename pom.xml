@@ -7,6 +7,18 @@
     <groupId>groupId</groupId>
     <artifactId>SearchEngine</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+    <dependency>
+        <groupId>edu.uci.ics</groupId>
+        <artifactId>crawler4j</artifactId>
+        <version>4.4.0</version>
+    </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.13.1</version>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>14</maven.compiler.source>

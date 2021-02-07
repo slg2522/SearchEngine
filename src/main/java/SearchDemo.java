@@ -51,11 +51,11 @@ public class SearchDemo{
 
             // get all links
             Elements links = doc.select("a[href]");
-            for (Element link : links) {
+            for (Element link : links){
 
                 String temp = link.attr("href");
                 if(temp.startsWith("/url?q=")){
-                    //use regex to get domain name
+                    //use regex to get domain name;
                     result.add(getDomainName(temp));
                 }
 

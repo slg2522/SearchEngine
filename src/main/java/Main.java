@@ -5,9 +5,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter search query: ");
-        String query = scanner.nextLine();
+        String query = keyboard.nextLine();
         SearchDemo obj = new SearchDemo();
         Set<String> result = obj.getDataFromGoogle(query);
         for(String temp : result){

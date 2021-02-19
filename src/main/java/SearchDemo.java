@@ -8,25 +8,23 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class SearchDemo{
+public class SearchDemo {
 
     private static Pattern patternDomainName;
     private Matcher matcher;
-    // regext pattern for String
+    // regex pattern for String
     private static final String DOMAIN_NAME_PATTERN
             = "([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}";
-    static {
-        patternDomainName = Pattern.compile(DOMAIN_NAME_PATTERN);
-    }
+    patternDomainName = Pattern.compile(DOMAIN_NAME_PATTERN); //no brackets needed + static is defined on l13.
 
-    public String getDomainName(String url){
+    public String getDomainName(String url) {
 
         String domainName = "";
         // get domain name of url that matches DOMAIN_NAME_PATTERN
         matcher = patternDomainName.matcher(url);
         // matcher to find matched pattern in the url
-        if (matcher.find()) {
-            domainName = matcher.group(0).toLowerCase().trim();
+        if (matcher.find()) { //TODO: what is .find()?
+            domainName = matcher.group(0).toLowerCase().trim(); //trim clears white space?
         }
         return domainName;
 
@@ -47,10 +45,10 @@ public class SearchDemo{
                     .userAgent(
                             "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)")
                     // send requests and wait. Timeout after 5 seconds
-                    .timeout(5000).get();
+                    .timeout(5000).get(); //Document variable is undefined!
 
             // get all links
-            Elements links = doc.select("a[href]");
+            Elements links = doc.select("a[href]"); //Elements is undefined!
             for (Element link : links){
 
                 String temp = link.attr("href");

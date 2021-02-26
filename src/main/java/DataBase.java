@@ -55,10 +55,10 @@ public class DataBase {
 
     private void createTable() {
         String createStatement =
-                "CREATE TABLE IF NOT EXISTS `shopping_list_entry` ( " +
-                        "`checked` INTEGER NOT NULL, " +
-                        "`amount` INTEGER NOT NULL, " +
-                        "`title` TEXT NOT NULL);";
+                "CREATE TABLE IF NOT EXISTS url_data (\n " +
+                        " id integer INTEGER PRIMARY KEY,\n" +
+                        "url TEXT NOT NULL\n" +
+                        ");";
         try (
                 Connection connection = getConnection();
                 Statement statement = connection.createStatement()) {

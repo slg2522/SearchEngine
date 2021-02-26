@@ -43,7 +43,6 @@ public class DataBase {
 
      */
 
-    // the connection will be used to to perform database operations
     private Connection getConnection(){
         try {
             Class.forName("org.sqlite.JDBC");
@@ -54,13 +53,12 @@ public class DataBase {
         return null;
     }
 
-    // create table
     private void createTable() {
         String createStatement =
-                "CREATE TABLE IF NOT EXISTS url_data (\n" +
-                        "id integer PRIMARY KEY,\n" +
-                        "url TEXT NOT NULL\n" +
-                        ");";
+                "CREATE TABLE IF NOT EXISTS `shopping_list_entry` ( " +
+                        "`checked` INTEGER NOT NULL, " +
+                        "`amount` INTEGER NOT NULL, " +
+                        "`title` TEXT NOT NULL);";
         try (
                 Connection connection = getConnection();
                 Statement statement = connection.createStatement()) {

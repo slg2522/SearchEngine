@@ -7,10 +7,14 @@ public class DataBase {
     private static final String databaseName = "sampleDataBase.db";
     private static DataBase sampleDataBase;
 
+    /*make sure only one instance of DataBase is created.
+     we follow singleton design pattern because we want to make sure that there is only one instance of DataBase being used globally. 
+     */
     private DataBase(){
         createTable();
     }
 
+    // we will get instance of DataBase class in other classes using this method
     public static DataBase getSampleDataBaseInstance(){
         if (sampleDataBase == null){
             sampleDataBase = new DataBase();

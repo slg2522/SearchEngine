@@ -3,12 +3,12 @@ import java.sql.*;
 
 public class DataBase {
 
-    private static final String databaseUrl = "jdbc:sqlite:";
-    private static final String databaseName = "sampleDataBase.db";
+    private static final String DATABASE_URL = "jdbc:sqlite:";
+    private static final String DATABASE_NAME = "sampleDataBase.db";
     private static DataBase sampleDataBase;
 
     /*make sure only one instance of DataBase is created.
-     we follow singleton design pattern because we want to make sure that there is only one instance of DataBase being used globally. 
+     we follow singleton design pattern because we want to make sure that there is only one instance of DataBase being used globally.
      */
     private DataBase(){
         createTable();
@@ -26,7 +26,7 @@ public class DataBase {
     private Connection getConnection(){
         try {
             Class.forName("org.sqlite.JDBC");
-            return DriverManager.getConnection(databaseUrl+databaseName);
+            return DriverManager.getConnection(DATABASE_URL+DATABASE_NAME);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

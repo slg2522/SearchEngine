@@ -23,30 +23,9 @@ public class HttpUrlConnectionExample {
         private final String USER_AGENT = "Mozilla/5.0";
 
         //main method for accessing gmail
-        public static void main(String[] args) throws Exception {
-
-            String url = "https://accounts.google.com/ServiceLoginAuth";
-            String gmail = "https://mail.google.com/mail/";
-
-            HttpUrlConnectionExample http = new HttpUrlConnectionExample();
-
-            // make sure cookies are turned on
-            CookieHandler.setDefault(new CookieManager());
-
-            // 1. Send a "GET" request, so that you can extract the form's data.
-            String page = http.GetPageContent(url);
-            String postParams = http.getFormParams(page, "username@gmail.com", "password");
-
-            // 2. Construct above post's content and then send a POST request for authentication
-            http.sendPost(url, postParams);
-
-            // 3. success then go to gmail.
-            String result = http.GetPageContent(gmail);
-            System.out.println(result);
-        }
 
         //registers the url as an object
-        private void sendPost(String url, String postParams) throws Exception {
+        public void sendPost(String url, String postParams) throws Exception {
 
             URL obj = new URL(url);
             conn = (HttpsURLConnection) obj.openConnection();
@@ -182,6 +161,28 @@ public class HttpUrlConnectionExample {
         public void setCookies(List<String> cookies) {
             this.cookies = cookies;
         }
+
+    public static void main(String[] args) throws Exception {
+
+        String url = "https://accounts.google.com/ServiceLoginAuth";
+        String gmail = "https://mail.google.com/mail/";
+
+        HttpUrlConnectionExample http = new HttpUrlConnectionExample();
+
+        // make sure cookies are turned on
+        CookieHandler.setDefault(new CookieManager());
+
+        // 1. Send a "GET" request, so that you can extract the form's data.
+        String page = http.GetPageContent(url);
+        String postParams = http.getFormParams(page, "username@gmail.com", "password");
+
+        // 2. Construct above post's content and then send a POST request for authentication
+        http.sendPost(url, postParams);
+
+        // 3. success then go to gmail.
+        String result = http.GetPageContent(gmail);
+        System.out.println(result);
+    }
 
 
     }

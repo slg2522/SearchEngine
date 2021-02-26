@@ -82,7 +82,20 @@ public class DataBase {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
 
+    // method for displaying data
+    public void displayData(){
+        String selectStatement = "SELECT url  FROM url_data";
+        try {
+            Statement queryStatement = getConnection().createStatement();
+            ResultSet dataSet = queryStatement.executeQuery(selectStatement);
+            while (dataSet.next()){
+                System.out.println(dataSet.getString("url"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
     /**
      * @param args the command line arguments

@@ -1,4 +1,4 @@
-package allFiles;
+package com.mkyong;
 
 /**A method for logging into password-protected website ares (example: gmail). Based on HttpUrlConnectionExample.java found at: https://mkyong.com/java/how-to-automate-login-a-website-java-example/  */
 
@@ -20,7 +20,7 @@ import org.jsoup.nodes.Element;				//specific to web
 import org.jsoup.select.Elements;			//specific to web
 
 //Creates the password protected class
-public class PasswordProtected
+public class HttpUrlConnectionExample
 {
 	  private List<String> cookies;
 	  private HttpsURLConnection conn;

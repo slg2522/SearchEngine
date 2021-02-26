@@ -43,6 +43,7 @@ public class DataBase {
 
      */
 
+    // Connection is used to perform database-related operations(crete table, delete data, insert data,...)
     private Connection getConnection(){
         try {
             Class.forName("org.sqlite.JDBC");
@@ -53,6 +54,7 @@ public class DataBase {
         return null;
     }
 
+    // create table using this method
     private void createTable() {
         String createStatement =
                 "CREATE TABLE IF NOT EXISTS url_data (\n " +
@@ -67,6 +69,20 @@ public class DataBase {
         } catch (Exception e) {
             System.exit(0);
         }
+    }
+
+    // method for inserting
+    public void insert(String url) {
+        String insertStatement = "INSERT INTO url_data(url) VALUES(?)";
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(insertStatement);
+            preparedStatement.setString(1,url);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
     }
     /**
      * @param args the command line arguments

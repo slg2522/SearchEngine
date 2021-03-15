@@ -1,3 +1,11 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+# Untracked files
+.classpath
+.idea/
+.project
+.settings/
+SearchEngine.iml
+deleteme.txt
+sampleDataBase.db
